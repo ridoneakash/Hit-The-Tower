@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5e5fac099c0787b428a56c33adbdc730
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - enemyPrefabs: {fileID: 1878670757670327809, guid: 0e60ab51bb03980499a18aeafd33c3a1, type: 3}
+  - spwanPoint: {fileID: 4010446970508444282, guid: 0928f9e4300f3434696708e52070a5ca, type: 3}
+  - waveCountDwonText: {fileID: 2546255034878322167, guid: ca37969966347a34d9e4a73c7548bfb3, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
