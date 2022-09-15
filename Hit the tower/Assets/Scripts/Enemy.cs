@@ -4,12 +4,37 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int health = 100;
     public float speed = 10.0f;
     private Transform target;
     private int waypointIndex = 0;
-    private void Start()
+    public int value = 50;
+    public GameObject deathEffect;
+
+     void Start()
     {
         target = WayPoint.points[0];
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        PlayerStats.Money += value;
+
+        GameObject effect = (GameObject)  Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 3f);
+
+       
+        Destroy(gameObject);
     }
     void Update()
     {
@@ -27,10 +52,18 @@ public class Enemy : MonoBehaviour
     {
         if (waypointIndex == WayPoint.points.Length-1)
         {
-            Destroy(gameObject);
+            EndPath();
+            
             return;
         }
-        waypointIndex++;
+
+         waypointIndex++;
          target =  WayPoint.points[waypointIndex];
+    }
+
+    void EndPath()
+    {
+        PlayerStats.lives--;
+        Destroy(gameObject);
     }
 }
